@@ -21,25 +21,36 @@ function convertToWord(letter) {
 }
 
 function win(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     userScore++;
     userScore_span.innerHTML = userScore;
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(computerChoice)}${smallCompWord}, You wins.🔥`
+    userChoice_div.classList.add('green-glow');
+    setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
 }
 
 function lose(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     computerScore++;
     computerScore_span.innerHTML = computerScore;
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     result_p.innerHTML = `${convertToWord(computerChoice)}${smallCompWord} beats ${convertToWord(userChoice)}${smallUserWord}, You Lost....💩`
+    userChoice_div.classList.add('red-glow');
+    setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
 }
 
 function draw(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     result_p.innerHTML = `${convertToWord(computerChoice)}${smallCompWord} and ${convertToWord(userChoice)}${smallUserWord} are similar. so, It's a draw.`
+    userChoice_div.classList.add('grey-glow');
+    setTimeout(() => userChoice_div.classList.remove('grey-glow'), 300);
+
+
 }
 
 function game(userChoice) {
